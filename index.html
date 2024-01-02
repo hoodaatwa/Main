@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repositories</title>
+  <!-- Include Material-UI styles and icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.0.1/dist/material-design-icons/iconfont/material-icons.css" integrity="sha384-rGi1CEVZxh5F2neuJb3Nm4MEWxh1OrlCcFCi5TjW60RPI+EBo3MBukk1MTtPHtah" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      background-color: #1976D2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin: 0;
+    }
+
+    #repoList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .repoCard {
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      transition: box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .repoCard:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .repoTitle {
+      font-size: 1.5rem;
+      color: #1976D2;
+      margin-bottom: 10px;
+    }
+
+    .repoDescription {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .repoLink {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 15px;
+    }
+
+    .repoLink a {
+      color: white;
+      text-decoration: none;
+      background-color: #1976D2;
+      padding: 10px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .repoLink a:hover {
+      background-color: #1565C0;
+    }
+
+    .repoLink i {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My GitHub Repositories</h1>
+
+  <div id="repoList"></div>
+
+  <script>
+    // Fetch data from GitHub API
+    fetch('https://api.github.com/users/hoodaatwa/repos')
+      .then(response => response.json())
+      .then(data => {
+        // Create Material-UI card for each repository
+        const repoList = document.getElementById('repoList');
+        data.forEach(repo => {
+          const repoCard = document.createElement('div');
+          repoCard.classList.add('repoCard');
+          repoCard.innerHTML = `
+            <div class="repoTitle">${repo.name}</div>
+            <div class="repoDescription">${repo.description}</div>
+            <div class="repoLink">
+              <a href="${repo.homepage}" target="_blank">Homepage <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          `;
+          repoList.appendChild(repoCard);
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+
+</body>
+</html>
