@@ -98,6 +98,11 @@
         // Create Material-UI card for each repository
         const repoList = document.getElementById('repoList');
         data.forEach(repo => {
+          if (repo.name.toLowerCase() === 'main') {
+            // Skip creating card if the repository title is "Main"
+            return;
+          }
+
           const repoCard = document.createElement('div');
           repoCard.classList.add('repoCard');
           repoCard.innerHTML = `
