@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
   <!-- Include Material-UI styles and icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.0.1/dist/material-design-icons/iconfont/material-icons.css" integrity="sha384-rGi1CEVZxh5F2neuJb3Nm4MEWxh1OrlCcFCi5TjW60RPI+EBo3MBukk1MTtPHtah" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.0.1/dist/material-design-icons/iconfont/material-icons.css"
+    integrity="sha384-rGi1CEVZxh5F2neuJb3Nm4MEWxh1OrlCcFCi5TjW60RPI+EBo3MBukk1MTtPHtah" crossorigin="anonymous">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -82,11 +84,24 @@
     .repoLink i {
       margin-left: 5px;
     }
+
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
   </style>
 </head>
+
 <body>
 
   <h1>Main</h1>
+
+  <input type="text" id="searchInput" oninput="filterRepos()" placeholder="Search...">
 
   <div id="repoList"></div>
 
@@ -116,7 +131,25 @@
         });
       })
       .catch(error => console.error('Error fetching data:', error));
+
+    function filterRepos() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const repoList = document.getElementById('repoList');
+      const repoCards = repoList.getElementsByClassName('repoCard');
+
+      Array.from(repoCards).forEach(repoCard => {
+        const repoTitle = repoCard.querySelector('.repoTitle').textContent.toLowerCase();
+        const repoDescription = repoCard.querySelector('.repoDescription').textContent.toLowerCase();
+
+        if (repoTitle.includes(searchInput) || repoDescription.includes(searchInput)) {
+          repoCard.style.display = '';
+        } else {
+          repoCard.style.display = 'none';
+        }
+      });
+    }
   </script>
 
 </body>
+
 </html>
