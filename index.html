@@ -152,6 +152,42 @@
     }
   </script>
 
+
+
+    <!-- ... (your body content remains unchanged) -->
+
+    <script>
+        // Fetch data from GitHub API
+        fetch('https://api.github.com/users/hoodaatwa/repos')
+            .then(response => response.json())
+            .then(data => {
+                // Create XML content dynamically
+                let xmlContent = '<?xml version="1.0" encoding="UTF-8" ?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+                data.forEach(repo => {
+                    if (repo.name.toLowerCase() === 'main') {
+                        // Skip creating URL if the repository title is "Main"
+                        return;
+                    }
+
+                    xmlContent += `    <url>\n`;
+                    xmlContent += `        <loc>${repo.homepage}</loc>\n`;
+                    xmlContent += `        <lastmod>${new Date().toISOString()}</lastmod>\n`; // Use the current date as the last modification date
+                    xmlContent += `        <changefreq>weekly</changefreq>\n`;
+                    xmlContent += `        <priority>0.8</priority>\n`; // Adjust priority as needed
+                    xmlContent += `    </url>\n`;
+                });
+
+                xmlContent += '</urlset>';
+
+                // Log or use the generated XML content as needed
+                console.log(xmlContent);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+
+
+
 </body>
 
 </html>
