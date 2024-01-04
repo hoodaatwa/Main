@@ -153,39 +153,49 @@
   </script>
 
 
-
-    <!-- ... (your body content remains unchanged) -->
-
     <script>
+        // Declare a variable to store the XML content
+        let generatedSitemap = '';
+
+        // Function to create a new page and display XML content
+        function displayXmlContent(content) {
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write('<pre>' + content + '</pre>');
+            newWindow.document.title = 'Generated XML Sitemap';
+        }
+
         // Fetch data from GitHub API
         fetch('https://api.github.com/users/hoodaatwa/repos')
             .then(response => response.json())
             .then(data => {
-                // Create XML content dynamically
                 let xmlContent = '<?xml version="1.0" encoding="UTF-8" ?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
                 data.forEach(repo => {
                     if (repo.name.toLowerCase() === 'main') {
-                        // Skip creating URL if the repository title is "Main"
                         return;
                     }
 
                     xmlContent += `    <url>\n`;
                     xmlContent += `        <loc>${repo.homepage}</loc>\n`;
-                    xmlContent += `        <lastmod>${new Date().toISOString()}</lastmod>\n`; // Use the current date as the last modification date
+                    xmlContent += `        <lastmod>${new Date().toISOString()}</lastmod>\n`;
                     xmlContent += `        <changefreq>weekly</changefreq>\n`;
-                    xmlContent += `        <priority>0.8</priority>\n`; // Adjust priority as needed
+                    xmlContent += `        <priority>0.8</priority>\n`;
                     xmlContent += `    </url>\n`;
                 });
 
                 xmlContent += '</urlset>';
 
+                // Store the generated XML content in the variable
+                generatedSitemap = xmlContent;
+
                 // Log or use the generated XML content as needed
-                console.log(xmlContent);
+                console.log(generatedSitemap);
+
+                // Display XML content on a new page
+                displayXmlContent(generatedSitemap);
             })
             .catch(error => console.error('Error fetching data:', error));
     </script>
-
 
 
 </body>
