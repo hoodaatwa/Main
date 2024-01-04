@@ -153,7 +153,43 @@
   </script>
 
 
-    
+    <!-- ... existing HTML content ... -->
+
+<script>
+  // Existing code...
+
+  function generateSitemap() {
+    const repoList = document.getElementById('repoList');
+    const repoCards = repoList.getElementsByClassName('repoCard');
+    const urls = [];
+
+    Array.from(repoCards).forEach(repoCard => {
+      const repoTitle = repoCard.querySelector('.repoTitle').textContent;
+      urls.push(`${window.location.href}#${encodeURIComponent(repoTitle)}`);
+    });
+
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8" ?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        ${urls.map(u => `<url><loc>${u}</loc></url>`).join('\n')}
+    </urlset>`;
+
+    const blob = new Blob([sitemapContent], { type: 'application/xml' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sitemap.xml';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
+
+  // Call generateSitemap whenever needed, e.g., after fetching GitHub data
+  // generateSitemap();
+</script>
+
+<!-- ... remaining HTML content ... -->
+
 
 </body>
 
