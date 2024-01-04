@@ -152,32 +152,6 @@
     }
   </script>
 
-<script>
-  function generateSitemap() {
-    const url = 'https://hoodaatwa.github.io/Main';
-    const sitemapPath = 'sitemap.xml';
-    const repoList = document.getElementById('repoList');
-    const repoLinks = repoList.querySelectorAll('.repoLink a');
-
-    const urls = Array.from(repoLinks).map(link => `${url}${link.getAttribute('href')}`);
-
-    const sitemapContent = `<?xml version="1.0" encoding="UTF-8" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${urls.map(u => `<url><loc>${u}</loc></url>`).join('\n')}
-</urlset>`;
-
-    // Create a Blob and initiate a download
-    const blob = new Blob([sitemapContent], { type: 'text/xml' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = sitemapPath;
-    link.click();
-  }
-
-  // Call the function to generate and download the sitemap
-  generateSitemap();
-</script>
-
 
 </body>
 
