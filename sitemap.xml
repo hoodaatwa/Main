@@ -1,12 +1,108 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <url>
-        <loc>https://hoodaatwa.github.io/Main/</loc>
-        <lastmod>2024-01-04</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
+  <!-- Photo Editor -->
+  <url>
+    <loc>https://github.com/hoodaatwa/photo-editor</loc>
+    <lastmod>2024-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
+  <!-- Compound Interest Calculator -->
+  <url>
+    <loc>https://github.com/hoodaatwa/compound-interest-calculator</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Loan Calculator -->
+  <url>
+    <loc>https://github.com/hoodaatwa/loan-calculator</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Html Editor v2 -->
+  <url>
+    <loc>https://github.com/hoodaatwa/html-editor-v2</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Dynamic Back To Top Button -->
+  <url>
+    <loc>https://github.com/hoodaatwa/dynamic-backToTopBtn</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Robochat -->
+  <url>
+    <loc>https://github.com/hoodaatwa/robochat</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Book Search -->
+  <url>
+    <loc>https://github.com/hoodaatwa/book-search</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- CatFact -->
+  <url>
+    <loc>https://github.com/hoodaatwa/catFact</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Mizogames -->
+  <url>
+    <loc>https://github.com/hoodaatwa/mizogames</loc>
+    <lastmod>2024-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- No Download Mobile Games -->
+  <url>
+    <loc>https://github.com/hoodaatwa/no-download-mobile-games</loc>
+    <lastmod>2024-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- GamePix -->
+  <url>
+    <loc>https://github.com/hoodaatwa/gamepix</loc>
+    <lastmod>2024-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Main -->
+  <url>
+    <loc>https://github.com/hoodaatwa/main</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Html Editor -->
+  <url>
+    <loc>https://github.com/hoodaatwa/html-editor</loc>
+    <lastmod>2023-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
 </urlset>
