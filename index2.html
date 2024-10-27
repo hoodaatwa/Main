@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>إعلان Unity</h1>
+    <button onclick="showAd()">عرض الإعلان</button> <!-- زر لعرض الإعلان -->
     <script>
         var gameId = "5720139"; // استبدل بـ Game ID الخاص بك
         var placementId = "Champion"; // استبدل بـ placement ID الخاص بك
@@ -16,11 +17,15 @@
         function showAd() {
             if (typeof unityAds !== "undefined") {
                 unityAds.show(placementId, options);
+            } else {
+                alert("الإعلان غير متاح.");
             }
         }
 
         // استدعاء دالة showAd عند تحميل الصفحة
-        window.onload = showAd;
+        window.onload = function() {
+            showAd(); // قم بإلغاء هذا السطر إذا كنت تريد عرض الإعلان يدويًا فقط
+        };
     </script>
 </body>
 </html>
