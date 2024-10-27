@@ -9,23 +9,24 @@
 <body>
     <h1>إعلان Unity</h1>
     <button onclick="showAd()">عرض الإعلان</button> <!-- زر لعرض الإعلان -->
-    <script>
-        var gameId = "5720139"; // استبدل بـ Game ID الخاص بك
-        var placementId = "Champion"; // استبدل بـ placement ID الخاص بك
-        var options = {};
+<script>
+    var gameId = "5720139"; // تأكد من أن هذا هو Game ID الصحيح
+    var placementId = "Champion"; // تأكد من أن هذا هو Placement ID الصحيح
+    var options = {
+        // خيارات إذا كنت بحاجة إليها
+    };
 
-        function showAd() {
-            if (typeof unityAds !== "undefined") {
-                unityAds.show(placementId, options);
-            } else {
-                alert("الإعلان غير متاح.");
-            }
+    function showAd() {
+        if (typeof unityAds !== "undefined") {
+            unityAds.show(placementId, options);
+        } else {
+            alert("الإعلان غير متاح.");
         }
+    }
 
-        // استدعاء دالة showAd عند تحميل الصفحة
-        window.onload = function() {
-            showAd(); // قم بإلغاء هذا السطر إذا كنت تريد عرض الإعلان يدويًا فقط
-        };
-    </script>
+    // استدعاء دالة showAd عند تحميل الصفحة
+    window.onload = showAd; // يمكن إلغاء هذا السطر إذا كنت تريد عرض الإعلان يدويًا فقط
+</script>
+
 </body>
 </html>
